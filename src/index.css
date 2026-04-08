@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#070d1f] text-white font-sans overflow-x-hidden;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(234, 88, 12, 0.06) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.4),
+      0 0 30px rgba(234, 179, 8, 0.2),
+      0 0 60px rgba(234, 88, 12, 0.1);
+  }
+
+  .text-glow-blue {
+    text-shadow:
+      0 0 10px rgba(59, 130, 246, 0.5),
+      0 0 30px rgba(29, 78, 216, 0.3);
+  }
+
+  .box-glow {
+    box-shadow:
+      0 0 15px rgba(59, 130, 246, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.1);
+  }
+
+  .box-glow-gold {
+    box-shadow:
+      0 0 15px rgba(234, 179, 8, 0.3),
+      0 0 30px rgba(234, 179, 8, 0.1);
+  }
+
+  .wanted-paper {
+    background: linear-gradient(135deg, #E8D1A7 0%, #D4B896 30%, #E8D1A7 60%, #C4A882 100%);
+    position: relative;
+  }
+
+  .wanted-paper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .ocean-waves {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(29, 78, 216, 0.03) 30%,
+      rgba(29, 78, 216, 0.08) 60%,
+      rgba(7, 13, 31, 1) 100%
+    );
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070d1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #eab308, #ea580c);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24, #f97316);
+}
+
+/* Selection */
+::selection {
+  background: rgba(234, 179, 8, 0.3);
+  color: white;
+}
+
+/* Jolly Roger skull keyframe */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes wave-move {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}

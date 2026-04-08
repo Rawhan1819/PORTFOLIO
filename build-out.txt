@@ -1,0 +1,7 @@
+﻿
+> portfolio@0.0.0 build
+> tsc -b && vite build
+
+src/sections/Contact.tsx(1,28): error TS1484: 'FormEvent' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/sections/Contact.tsx(3,1): error TS6133: 'emailjs' is declared but its value is never read.
+src/sections/Projects.tsx(3,10): error TS2305: Module '"lucide-react"' has no exported member 'Github'.
