@@ -73,22 +73,32 @@ const About = () => {
 
               {/* Photo area */}
               <div className="w-full h-52 bg-[#C4A87A] border-4 border-pirate-brown/50 mb-6 flex flex-col items-center justify-center overflow-hidden relative">
-                {/* Zoro silhouette with 3 swords */}
-                <svg className="w-32 h-32 text-pirate-brown/60" viewBox="0 0 120 120" fill="currentColor">
-                  {/* Head */}
-                  <circle cx="60" cy="30" r="16" />
-                  {/* Body */}
-                  <path d="M45 46 L60 90 L75 46 Z" />
-                  {/* 3 Swords (Zoro's Santoryu style) */}
-                  <rect x="20" y="38" width="3" height="50" rx="1" transform="rotate(-15 21 38)" />
-                  <rect x="58.5" y="10" width="3" height="50" rx="1" />
-                  <rect x="97" y="38" width="3" height="50" rx="1" transform="rotate(15 98 38)" />
-                  {/* Haramaki (belly band) */}
-                  <rect x="48" y="55" width="24" height="8" rx="2" opacity="0.4" />
-                </svg>
-                <span className="text-[10px] font-bold tracking-widest text-pirate-brown/40 mt-1">
-                  PLACE YOUR PHOTO HERE
-                </span>
+                {/* User Photo */}
+                <img 
+                  src="/profile.jpg" 
+                  alt="Rawhan Ramzi" 
+                  className="w-full h-full object-cover object-top grayscale-[0.6] hover:grayscale-0 transition-all duration-500 sepia-[0.4]"
+                  onError={(e) => {
+                    // Fallback to silhouette if profile.jpg is missing
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                
+                {/* Fallback Zoro Silhouette (shows if profile.jpg is missing) */}
+                <div className="hidden flex-col items-center justify-center w-full h-full absolute inset-0">
+                  <svg className="w-24 h-24 text-pirate-brown/60" viewBox="0 0 120 120" fill="currentColor">
+                    <circle cx="60" cy="30" r="16" />
+                    <path d="M45 46 L60 90 L75 46 Z" />
+                    <rect x="20" y="38" width="3" height="50" rx="1" transform="rotate(-15 21 38)" />
+                    <rect x="58.5" y="10" width="3" height="50" rx="1" />
+                    <rect x="97" y="38" width="3" height="50" rx="1" transform="rotate(15 98 38)" />
+                    <rect x="48" y="55" width="24" height="8" rx="2" opacity="0.4" />
+                  </svg>
+                  <span className="text-[10px] font-bold tracking-widest text-pirate-brown/80 mt-2 text-center px-2">
+                    ADD 'profile.jpg'<br/>TO PUBLIC DIRECTORY
+                  </span>
+                </div>
               </div>
 
               {/* Name */}
